@@ -3,7 +3,6 @@ import type { BetterAuthOptions } from "../types";
 import type { LiteralString } from "../types/helper";
 
 export type FieldType =
-	| "any"
 	| "string"
 	| "number"
 	| "boolean"
@@ -12,7 +11,6 @@ export type FieldType =
 	| Array<LiteralString>;
 
 type Primitive =
-	| any
 	| string
 	| number
 	| boolean
