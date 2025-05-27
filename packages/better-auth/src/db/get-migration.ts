@@ -70,6 +70,7 @@ export function matchType(
 	const types = map[dbType];
 	const type = Array.isArray(fieldType)
 		? types["string"].map((t) => t.toLowerCase())
+		// @ts-ignore
 		: types[fieldType].map((t) => t.toLowerCase());
 	const matches = type.includes(columnDataType.toLowerCase());
 	return matches;
@@ -217,7 +218,7 @@ export async function getMigrations(config: BetterAuthOptions) {
 		if (dbType === "sqlite" && (type === "string[]" || type === "number[]")) {
 			return "text";
 		}
-		if (type === "string[]" || type === "number[]") {
+		if (type === "string[]" || type === "number[]" || type === "any") {
 			return "jsonb";
 		}
 		if (Array.isArray(type)) {
